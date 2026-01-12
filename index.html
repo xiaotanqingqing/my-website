@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>韩国轻医美中心 | Korean Aesthetic Clinic</title>
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS 动效库 -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- Swiper 轮播图 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <!-- Font Awesome 图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- 自定义样式 -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-[#FFF7FA] text-gray-800">
+
+  <!-- 顶部导航 -->
+  <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent">
+    <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo.png" class="h-10" alt="logo" />
+        <span id="siteName" class="font-semibold text-lg text-white drop-shadow">韩国轻医美中心</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-white font-medium drop-shadow">
+        <a href="#price" id="navPrice">项目价格</a>
+        <a href="#news" id="navNews">医美资讯</a>
+        <a href="#projects" id="navProjects">热门项目</a>
+        <a href="#faq" id="navFaq">常见问答</a>
+        <button onclick="setLang('zh')" class="px-3 py-1 rounded-full bg-white/20">中文</button>
+        <button onclick="setLang('en')" class="px-3 py-1 rounded-full bg-white/20">EN</button>
+        <button onclick="openConsult()" id="navConsult"
+          class="ml-4 px-4 py-2 rounded-full bg-pink-500 hover:bg-pink-600 text-white shadow">
+          咨询我们
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="relative h-[90vh] w-full overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=1600&q=80"
+      class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/10"></div>
+    <div class="absolute left-10 bottom-24 text-white drop-shadow-lg" data-aos="fade-up">
+      <h1 id="title" class="text-4xl md:text-5xl font-bold mb-4">韩国 No.1 轻医美中心</h1>
+      <p id="subtitle" class="text-lg md:text-xl">专注自然效果 · 安全正规 · 一对一专属方案</p>
+    </div>
+  </section>
+
+  <!-- 模块1：价格表 -->
+  <section id="price" class="max-w-7xl mx-auto py-20 px-6">
+    <h2 id="priceTitle" class="text-3xl font-bold mb-4 text-pink-500">热门项目价格表</h2>
+    <p id="priceSub" class="text-gray-600 mb-10">透明公开的套餐价格，所有项目均由韩国正规执业医生亲自操作。</p>
+    <div class="grid md:grid-cols-4 gap-6">
+      <!-- 四个价格卡片 -->
+      <div class="glass-card p-6 rounded-2xl shadow-lg" data-aos="zoom-in">
+        <i class="fa-solid fa-syringe text-pink-500 text-3xl mb-3"></i>
+        <h3 id="item1">玻尿酸填充（法令纹 / 苹果肌）</h3>
+        <p class="text-gray-500 line-through">¥ 3,800</p>
+        <p class="text-pink-600 font-bold text-xl">¥ 1,980</p>
+      </div>
+      <div class="glass-card p-6 rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="100">
+        <i class="fa-solid fa-wand-magic-sparkles text-pink-500 text-3xl mb-3"></i>
+        <h3 id="item2">热玛吉紧致提升（全脸）</h3>
+        <p class="text-gray-500 line-through">¥ 12,800</p>
+        <p class="text-pink-600 font-bold text-xl">¥ 6,980</p>
+      </div>
+      <div class="glass-card p-6 rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="200">
+        <i class="fa-solid fa-face-smile text-pink-500 text-3xl mb-3"></i>
+        <h3 id="item3">肉毒瘦脸针（两侧咬肌）</h3>
+        <p class="text-gray-500 line-through">¥ 4,500</p>
+        <p class="text-pink-600 font-bold text-xl">¥ 2,180</p>
+      </div>
+      <div class="glass-card p-6 rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="300">
+        <i class="fa-solid fa-sun text-pink-500 text-3xl mb-3"></i>
+        <h3 id="item4">美白嫩肤水光针（3次套餐）</h3>
+        <p class="text-gray-500 line-through">¥ 5,800</p>
+        <p class="text-pink-600 font-bold text-xl">¥ 2,980</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 模块2：资讯 + 优惠 -->
+  <section id="news" class="max-w-7xl mx-auto py-20 px-6 grid md:grid-cols-2 gap-10">
+    <div data-aos="fade-right">
+      <h2 id="newsTitle" class="text-3xl font-bold text-pink-500 mb-6">医美行业最新资讯</h2>
+      <div class="space-y-6">
+        <div class="news-card"><h3>趋势：自然感成主流</h3><p>亚洲女性更偏好恢复期短、风险低、效果自然的轻医美项目。</p></div>
+        <div class="news-card"><h3>监管升级，正规机构优势凸显</h3><p>合规产品 + 合规流程成为行业核心竞争力。</p></div>
+        <div class="news-card"><h3>赴韩医美回暖</h3><p>翻译、接送、术后随访等一站式服务成为刚需。</p></div>
+      </div>
+    </div>
+    <div data-aos="fade-left">
+      <h2 id="offerTitle" class="text-3xl font-bold text-pink-500 mb-6">本月专属优惠活动</h2>
+      <div class="space-y-6">
+        <div class="offer-card"><img src="https://images.unsplash.com/photo-1526045431048-e56f68c8e6c5?auto=format&fit=crop&w=400&q=80"/><div><h3>热玛吉 4.0 全脸紧致</h3><p>限时 ¥ 6,980，含术前检测与术后护理。</p></div></div>
+        <div class="offer-card"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80"/><div><h3>水光针 3 次焕肤套餐</h3><p>改善暗沉、干燥、细纹。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 模块3：项目展示（12 宫格） -->
+  <section id="projects" class="max-w-7xl mx-auto py-20 px-6">
+    <h2 id="projectsTitle" class="text-3xl font-bold text-pink-500 mb-4">面部精致管理项目</h2>
+    <p id="projectsSub" class="text-gray-600 mb-10">由具备丰富亚洲审美经验的韩国医生亲自评估与操作。</p>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <!-- 12 个项目卡片 -->
+      <div class="project-card" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=400&q=80"/><h3 id="proj1">双眼皮精细成形</h3></div>
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="50"><img src="https://images.unsplash.com/photo-1522336572468-97b06e8ef143?auto=format&fit=crop&w=400&q=80"/><h3 id="proj2">自然隆鼻塑形</h3></div>
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="100"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80"/><h3 id="proj3">玻尿酸立体填充</h3></div>
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="150"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80"/><h3 id="proj4">肉毒瘦脸 / 下颌缘</h3></div>
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="200"><img src="https://images.unsplash.com/photo-1526045431048-e56f68c8e6c5?auto=format&fit=crop&w=400&q=80"/><h3 id="proj5">热玛吉全脸紧致</h3></div>
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="250"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80"/><h3 id="proj6">超声刀提拉提升</h3></div>
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="300"><img src="https://images.unsplash.com/photo-1522336572468-97b06e8ef143?auto=format&fit=crop&w=400&q=80"/><h3 id="proj7">皮秒激光祛斑美白</h3></div>
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="350"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80"/><h3 id="proj8">深层补水水光针</h3></div>
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="400"><img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=400&q=80"/><h3 id="proj9">面部综合提升</h3></div>
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="450"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80"/><h3 id="proj10">祛斑嫩肤管理</h3></div>
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="500"><img src="https://images.unsplash.com/photo-1522336572468-97b06e8ef143?auto=format&fit=crop&w=400&q=80"/><h3 id="proj11">线雕精细提升</h3></div>
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="550"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80"/><h3 id="proj12">下颌缘紧致塑形</h3></div>
+    </div>
+  </section>
+
+  <!-- 模块4：FAQ -->
+  <section id="faq" class="max-w-7xl mx-auto py-20 px-6">
+    <h2 id="faqTitle" class="text-3xl font-bold text-pink-500 mb-4">常见疑问与解答</h2>
+    <p id="faqSub" class="text-gray-600 mb-10">以下是大家最常问到的问题，我们用通俗易懂的方式为你解答。</p>
+    <div class="space-y-4">
+      <div class="faq-item"><button class="faq-question"><span id="q1">做轻医美会不会上瘾？</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer"><p id="a1">合理规划的轻医美更像是“皮肤管理”，不会形成心理依赖。</p></div></div>
+      <div class="faq-item"><button class="faq-question"><span id="q2">玻尿酸 / 肉毒素到底安不安全？</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer"><p id="a2">正规产品 + 专业医生 + 合理剂量，安全性是有保障的。</p></div></div>
+      <div class="faq-item"><button class="faq-question"><span id="q3">热玛吉 / 超声刀多久做一次？</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer"><p id="a3">热玛吉建议 12～18 个月评估一次；超声刀 9～12 个月评估一次。</p></div></div>
+      <div class="faq-item"><button class="faq-question"><span id="q4">做医美会不会“毁容”？</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer"><p id="a4">风险主要来自非正规机构和过度项目，我们坚持自然、安全、循序渐进。</p></div></div>
+      <div class="faq-item"><button class="faq-question"><span id="q5">怎么判断一家机构是否靠谱？</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer"><p id="a5">看资质、看医生、看产品来源、看沟通是否透明。</p></div></div>
+      <div class="faq-item"><button class="faq-question"><span id="q6">第一次做轻医美需要准备什么？</span><i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer"><p id="a6">整理诉求、避免影响凝血的药物、保持作息、如实告知过敏史与疾病史。</p></div></div>
+    </div>
+  </section>
+
+  <!-- 模块5：来院流程 -->
+  <section id="flow" class="max-w-7xl mx-auto py-20 px-6">
+    <h2 class="text-3xl font-bold text-pink-500 mb-4">来院流程说明</h2>
+    <p class="text-gray-600 mb-10">从线上咨询到术后随访，全程都有中文团队陪同。</p>
+    <div class="grid md:grid-cols-4 gap-6">
+      <div class="glass-card p-6 rounded-2xl" data-aos="fade-up">
+        <span class="text-pink-500 font-bold text-xl mb-2 block">01</span>
+        <h3>线上咨询</h3>
+        <p>顾问了解诉求，医生给出初步方案。</p>
+      </div>
+      <div class="glass-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="80">
+        <span class="text-pink-500 font-bold text-xl mb-2 block">02</span>
+        <h3>行程确认</h3>
+        <p>安排接机、酒店与来院时间。</p>
+      </div>
+      <div class="glass-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="160">
+        <span class="text-pink-500 font-bold text-xl mb-2 block">03</span>
+        <h3>面诊与操作</h3>
+        <p>韩国医生面诊后再实施项目。</p>
+      </div>
+      <div class="glass-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="240">
+        <span class="text-pink-500 font-bold text-xl mb-2 block">04</span>
+        <h3>术后随访</h3>
+        <p>回国后仍可微信随访与答疑。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 模块6：医生团队 -->
+  <section id="doctors" class="max-w-7xl mx-auto py-20 px-6">
+    <h2 class="text-3xl font-bold text-pink-500 mb-4">韩国医生团队</h2>
+    <p class="text-gray-600 mb-10">均为韩国执业医生，专注亚洲面部审美多年。</p>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="glass-card p-6 rounded-2xl text-center" data-aos="fade-up">
+        <img src="https://images.unsplash.com/photo-1550831107-1553da8c8464?auto=format&fit=crop&w=400&q=80"
+             class="w-28 h-28 rounded-full mx-auto mb-4 object-cover" />
+        <h3 class="font-semibold mb-1">金仁硕 医生</h3>
+        <p class="text-xs text-gray-500 mb-2">皮肤科专科 | 15 年经验</p>
+        <p class="text-sm text-gray-600">擅长热玛吉、超声刀与综合抗衰规划。</p>
+      </div>
+      <div class="glass-card p-6 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="80">
+        <img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=400&q=80"
+             class="w-28 h-28 rounded-full mx-auto mb-4 object-cover" />
+        <h3 class="font-semibold mb-1">朴秀妍 医生</h3>
+        <p class="text-xs text-gray-500 mb-2">美容外科 | 12 年经验</p>
+        <p class="text-sm text-gray-600">擅长双眼皮、眼周精细手术与微调填充。</p>
+      </div>
+      <div class="glass-card p-6 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="160">
+        <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400&q=80"
+             class="w-28 h-28 rounded-full mx-auto mb-4 object-cover" />
+        <h3 class="font-semibold mb-1">崔志勋 医生</h3>
+        <p class="text-xs text-gray-500 mb-2">激光中心主任</p>
+        <p class="text-sm text-gray-600">主攻皮秒祛斑、嫩肤与问题皮肤管理。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 模块7：案例展示（Swiper） -->
+  <section id="cases" class="max-w-7xl mx-auto py-20 px-6">
+    <h2 class="text-3xl font-bold text-pink-500 mb-4">真实案例前后对比</h2>
+    <p class="text-gray-600 mb-10">以下为授权展示的部分案例，仅供参考。</p>
+    <div class="swiper myCasesSwiper" data-aos="fade-up">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="glass-card rounded-2xl p-4 flex flex-col md:flex-row gap-4">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80"
+                 class="w-full md:w-1/2 rounded-2xl object-cover" />
+            <div class="flex-1 flex flex-col justify-center">
+              <h3 class="font-semibold mb-2">双眼皮 + 内眼角调整</h3>
+              <p class="text-sm text-gray-600">改善疲惫感，保持自然神态。</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="glass-card rounded-2xl p-4 flex flex-col md:flex-row gap-4">
+            <img src="https://images.unsplash.com/photo-1526045431048-e56f68c8e6c5?auto=format&fit=crop&w=600&q=80"
+                 class="w-full md:w-1/2 rounded-2xl object-cover" />
+            <div class="flex-1 flex flex-col justify-center">
+              <h3 class="font-semibold mb-2">热玛吉 + 苹果肌填充</h3>
+              <p class="text-sm text-gray-600">紧致轮廓，改善法令纹。</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="glass-card rounded-2xl p-4 flex flex-col md:flex-row gap-4">
+            <img src="https://images.unsplash.com/photo-1522336572468-97b06e8ef143?auto=format&fit=crop&w=600&q=80"
+                 class="w-full md:w-1/2 rounded-2xl object-cover" />
+            <div class="flex-1 flex flex-col justify-center">
+              <h3 class="font-semibold mb-2">皮秒祛斑 + 水光针</h3>
+              <p class="text-sm text-gray-600">提亮肤色，改善暗沉。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination mt-4"></div>
+      <div class="swiper-button-next text-pink-500"></div>
+      <div class="swiper-button-prev text-pink-500"></div>
+    </div>
+  </section>
+
+  <!-- 模块8：Footer -->
+  <footer class="bg-white border-t border-pink-100 mt-10">
+    <div class="max-w-7xl mx-auto px-6 py-8 grid md:grid-cols-3 gap-8">
+            <div>
+        <h3 class="font-semibold mb-2">快速导航</h3>
+        <ul class="text-xs text-gray-600 space-y-1">
+          <li><a href="#price" class="hover:text-pink-500">项目价格</a></li>
+          <li><a href="#projects" class="hover:text-pink-500">热门项目</a></li>
+          <li><a href="#cases" class="hover:text-pink-500">案例展示</a></li>
+          <li><a href="#faq" class="hover:text-pink-500">常见问答</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-2">联系方式</h3>
+        <p class="text-xs text-gray-600">微信：your-wechat</p>
+        <p class="text-xs text-gray-600">电话：+82-10-1234-5678</p>
+        <p class="text-xs text-gray-600">地址：首尔江南区 · 面诊前提供具体地址</p>
+      </div>
+    </div>
+    <div class="text-center text-[11px] text-gray-400 pb-4">
+      <span id="footerText">
+        本页面内容仅作项目参考，具体方案以医生面诊评估为准。Copyright © 2026 Korean Aesthetic Clinic.
+      </span>
+    </div>
+  </footer>
+
+  <!-- 模块9：移动端悬浮咨询按钮 -->
+  <button
+    class="fixed bottom-4 right-4 z-50 md:hidden bg-pink-500 text-white rounded-full px-4 py-2 shadow-lg flex items-center gap-2"
+    onclick="openConsult()">
+    <i class="fa-brands fa-weixin"></i>
+    <span>咨询顾问</span>
+  </button>
+
+  <!-- 咨询弹窗 -->
+  <div id="consultModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeConsult()">&times;</span>
+      <h2 id="consultTitle">添加顾问微信获取一对一方案</h2>
+      <img src="assets/qr.png" class="qr" />
+      <p><strong>微信号：</strong> your-wechat</p>
+      <p><strong>电话：</strong> +82-10-1234-5678</p>
+      <form class="consult-form">
+        <label>姓名：</label><input type="text" name="name" required />
+        <label>联系方式：</label><input type="text" name="contact" required />
+        <label>意向项目：</label><input type="text" name="project" required />
+        <button type="submit">提交信息</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+</html>
